@@ -1,0 +1,56 @@
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+:root{
+    --boardBackround:cadetblue;
+    --cellBackround:teal;
+    --fontColor:rgb(212, 212, 212);
+}
+*, *::before, *::after{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    font-size: 8vmin;
+}   
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0%;
+    height: 100vh;
+}
+.board{
+    --grid-num:4;
+    --cell-size:15vmin;
+    --cell-gap:1.5vmin;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-num),var(--cell-size));
+    grid-template-rows: repeat(var(--grid-num),var(--cell-size));
+    background-color: var(--boardBackround);
+    gap: var(--cell-gap);
+    padding: var(--cell-gap);
+    position: relative;
+    border-radius: 1vmin;
+}
+.cell{
+    background-color: var(--cellBackround);
+    border-radius: 1vmin;   
+}
+.tile{
+    color: var(--fontColor);
+    border: var(--fontColor) 2px solid;
+    border-radius:1vmin;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    --x:1;
+    --y:1;
+    left: calc(var(--x) * (var(--cell-size)) + var(--cell-gap)*(var(--x) + 1 ));
+    top: calc(var(--y) * (var(--cell-size)) + var(--cell-gap)*(var(--y) + 1 ));
+}
